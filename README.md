@@ -1,5 +1,5 @@
-jssdk-base-app
-==============
+Bouquet simple app
+==================
 
 Base skeleton App for JSSDK. 
 
@@ -35,17 +35,9 @@ grunt watch
 ````
 
 Edit the app/main.js file to match your Project's settings
-(here we use the "musicbrainz" project on a local client)
-```
-squid_api.setup({
-    "clientId" : "local",
-    "projectId" : "musicbrainz"
-});
-````
+
 
 View the build results
 ```
 open dist/index.html
 `````
-
-Now you can follow our [tutorials](https://api.squidsolutions.com/wp/api-tutorial/) to deep dive into analytical apps development
