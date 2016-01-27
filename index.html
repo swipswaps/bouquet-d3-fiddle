@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bouquet Simple App</title>
+<base href="https://api.squidsolutions.com/apps/develop/bouquet/">
+
+<link rel="stylesheet" type="text/css" href="app/style.css">
+<!-- bower:css -->
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.2183d05f.css" />
+<link rel="stylesheet" href="bower_components/squid_api_core_widgets/dist/squid_api_core-widgets.65ab8194.css" />
+<link rel="stylesheet" href="bower_components/bootstrap-multiselect/dist/css/bootstrap-multiselect.3df1110d.css" />
+<link rel="stylesheet" href="bower_components/metrics-graphics/dist/metricsgraphics.865d4db2.css" />
+<link rel="stylesheet" href="bower_components/squid_api_data_widgets/dist/squid_api_data-widgets.a6d778f6.css" />
+<link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker-bs3.a1d69b7e.css" />
+<link rel="stylesheet" href="bower_components/squid_api_filters_widget/dist/squid_api_filters-widgets.b69cd37c.css" />
+<!-- endbower -->
+
+<!-- bower:js -->
+<script src="bower_components/jquery/jquery.b29c22ea.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.9cb05329.js"></script>
+<script src="bower_components/underscore/underscore.f893e294.js"></script>
+<script src="bower_components/backbone/backbone.c1a39c11.js"></script>
+<script src="bower_components/urijs/src/URI.15e7342d.js"></script>
+<script src="bower_components/backbone-nested-models/backbone-nested-models.bb8be40f.js"></script>
+<script src="bower_components/squid_api/dist/squid_api.a05d1998.js"></script>
+<script src="bower_components/handlebars/handlebars.d7a58c28.js"></script>
+<script src="bower_components/squid_api_core_widgets/dist/squid_api_core-widgets.351bf8f2.js"></script>
+<script src="bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.0e199027.js"></script>
+<script src="bower_components/d3/d3.c6594966.js"></script>
+<script src="bower_components/moment/moment.15bc84f8.js"></script>
+<script src="bower_components/backbone-forms/distribution/backbone-forms.dfe81147.js"></script>
+<script src="bower_components/backbone.bootstrap-modal/src/backbone.bootstrap-modal.516324b3.js"></script>
+<script src="bower_components/backbone-deep-model/dist/backbone-deep-model.8237cbd4.js"></script>
+<script src="bower_components/metrics-graphics/dist/metricsgraphics.8bedc9eb.js"></script>
+<script src="bower_components/squid_api_data_widgets/dist/squid_api_data-widgets.ff18229a.js"></script>
+<script src="bower_components/jquery-ui/ui/jquery-ui.27c35e4f.js"></script>
+<script src="bower_components/bootstrap-daterangepicker/daterangepicker.7b8db6ef.js"></script>
+<script src="bower_components/squid_api_filters_widget/dist/squid_api_filters-widget.7dfa0890.js"></script>
+<!-- endbower -->
+</head>
+<body>
+	<div class="container" id="header">
+		<div class="row">
+			<div class="col-md-9">
+				<div id="status"></div>
+			</div>
+			<div class="col-md-3">
+				<div id="login"></div>
+			</div>
+		</div>
+	</div>
+	<div class="container" id="main">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Simple App</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<div id="date"></div>
+			</div>
+			<div class="col-md-1">
+				<div id="filters"></div>
+			</div>
+			<div class="col-md-8">
+				<div id="selected"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div id="data"></div>
+			</div>
+		</div>
+	</div>
+	
+	<script>
+	$( document ).ready(function() {
+	    /*
+	     * API Setup
+	     */
+	    var API = squid_api.setup({
+	        "apiUrl" : "api.squidsolutions.com",
+	        "clientId" : "bouquet-app-simple",
+	        "config" : {
+	            "project" : null,
+	            "bookmark" : null
+	        },
+	    });
+	    
+	    /*
+	     * Controller part
+	     */
+	    new API.controller.FiltersController();
+	    var analysis = (new API.controller.AnalysisController()).model;
+	    
+	    /*
+	     * Declare the views 
+	     */
+	    new API.view.LoginView();
+	    new API.view.StatusView();
+	    new API.view.DataTableView ({
+	        el : '#data',
+	        model : analysis
+	    });
+	    new API.view.CategoricalView({
+	        el : '#filters',
+	        filterSelected : '#selected'
+	    });
+	    new API.view.DateSelectionWidget({
+	        el : '#date'
+	    });
+	    
+	    /*
+	     * Start the App
+	     */
+	    API.init();
+	});
+
+	</script>
+</body>
+</html>

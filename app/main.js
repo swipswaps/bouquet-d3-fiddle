@@ -1,64 +1,42 @@
 $( document ).ready(function() {
     
-    var api = squid_api, config;
-
-    api.setup({
-        "clientId" : "local",
+    /*
+     * API Setup
+     */
+    var API = squid_api.setup({
+        "apiUrl" : "api.squidsolutions.com",
+        "clientId" : "bouquet-app-simple",
         "config" : {
-            "project" : "musicbrainz"
-        }
+            "project" : null,
+            "bookmark" : null
+        },
     });
     
-    // get the config after setup
-    config = api.model.config;
+    /*
+     * Controller part
+     */
+    new API.controller.FiltersController();
+    var analysis = (new API.controller.AnalysisController()).model;
     
     /*
      * Declare the views 
      */
-     
-    new api.view.LoginView({
-        el : '#login',
-        autoShow : true
+    new API.view.LoginView();
+    new API.view.StatusView();
+    new API.view.DataTableView ({
+        el : '#data',
+        model : analysis
     });
-    
-    new api.view.StatusView({
-        el : '#status'
+    new API.view.CategoricalView({
+        el : '#filters',
+        filterSelected : '#selected'
     });
-    
-    var content = $("#main-content");
-
-    /*
-     * Controller part
-     */
-    
-    // handle the login event
-    api.model.login.on('change:login', function(model) {
-        $("#main").removeClass("hidden");
-        var login = model.get("login");
-        if (login) {
-            // login ok
-            content.html("Hello "+login);
-        } else {
-            content.html("Please login");
-        }
-    });
-    
-    // handle project
-    api.model.project.on('change', function(project) {
-        if (project) {
-            content.append("\nThe current Project fetched : "+project.get("name"));
-        }
-    });
-
-    // handle configuration
-    config.on('change', function(config) {
-        if (config) {
-            content.append("\nThe current app Config : "+JSON.stringify(config));
-        }
+    new API.view.DateSelectionWidget({
+        el : '#date'
     });
     
     /*
      * Start the App
      */
-    api.init();
+    API.init();
 });
