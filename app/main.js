@@ -4,10 +4,10 @@ $( document ).ready(function() {
      * API Setup
      */
     var API = squid_api.setup({
-        "apiUrl" : "api.squidsolutions.com",
-        "clientId" : "bouquet-app-simple",
+        "apiUrl" : "demo.openbouquet.io",
+        "clientId" : "simple-app",
         "config" : {
-            "project" : null,
+            "project" : "dvdrental",
             "bookmark" : null
         },
     });
