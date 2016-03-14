@@ -25,7 +25,8 @@ $( document ).ready(function() {
     new API.view.StatusView();
     new API.view.CategoricalView({
         el : '#filters',
-        filterSelected : '#selected'
+        filterSelected : '#selected',
+        popup : true
     });
     new API.view.DateSelectionWidget({
         el : '#date'
