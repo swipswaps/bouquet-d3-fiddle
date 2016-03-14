@@ -34,12 +34,9 @@ $( document ).ready(function() {
     new API.view.BookmarkWidget({
         el : '#bookmark'
     });
-
-    analysis.on("change", function() {
-        if (this.get("results")) {
-            /*
-                Sample D3 Table to display the data
-             */
+    
+    var defaultFunction = function(analysis) {
+        if (analysis.get("results")) {
 
             // remove any existing tables created
             d3.select('#data table').remove();
@@ -58,7 +55,7 @@ $( document ).ready(function() {
                 // insert table header data
                 table.select("thead tr")
                      .selectAll("th")
-                     .data(this.get("results").cols)
+                     .data(analysis.get("results").cols)
                      .enter()
                      .append("th")
                      .text(function(d) {
@@ -71,7 +68,7 @@ $( document ).ready(function() {
                 // insert table body data
                 table.select("tbody")
                     .selectAll("tr")
-                    .data(this.get("results").rows)
+                    .data(analysis.get("results").rows)
                     .enter()
                     .append("tr").selectAll("td")
                     .data(function(d) {
@@ -83,7 +80,25 @@ $( document ).ready(function() {
                         return d;
                     });
         }
+    };
+    
+    var editor = ace.edit("editor");
+    editor.getSession().setMode("ace/mode/javascript");
+    var entire = defaultFunction.toString();
+    var body = entire.slice(entire.indexOf("{") + 1, entire.lastIndexOf("}"));
+    editor.getSession().setValue(body);
+    var f;
+    
+    $("#apply").click(function() {
+        var body = editor.getSession().getValue();
+        console.log(body);
+        /*jslint evil: true */
+        f = new Function('analysis', body);
+        analysis.on("change", f);
+        analysis.trigger("change", analysis);
     });
+
+    
     
     /*
      * Start the App
