@@ -53,57 +53,12 @@ $( document ).ready(function() {
         projectModal.render();
     });
     
-    var defaultFunction = function(analysis) {
-
-            // remove any existing tables created
-            d3.select('#data table').remove();
-
-            // specify the rendering div
-            var container = d3.select('#data');
-
-            // create table & append table headers
-            container.append('table')
-                .append('thead')
-                .append('tr');
-
-            // store our created table
-            var table = container.select('table');
-
-            // insert table header data
-            table.select("thead tr")
-                .selectAll("th")
-                .data(analysis.get("results").cols)
-                .enter()
-                .append("th")
-                .text(function(d) {
-                    return d.name;
-                });
-
-            // insert table body
-            table.append('tbody');
-
-            // insert table body data
-            table.select("tbody")
-                .selectAll("tr")
-                .data(analysis.get("results").rows)
-                .enter()
-                .append("tr").selectAll("td")
-                .data(function(d) {
-                    return d.v;
-                })
-                .enter()
-                .append("td")
-                .text(function(d) {
-                    return d;
-                });
-    };
 
     var editor = ace.edit("editor");
     editor.getSession().setMode("ace/mode/javascript");
 
     var editorContents = function(dataviz) {
-        var entire = defaultFunction.toString();
-        var body = entire.slice(entire.indexOf("{") + 1, entire.lastIndexOf("}"));
+        var body = "";
         if (dataviz) {
             body = dataviz;
         }
