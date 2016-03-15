@@ -35,6 +35,24 @@ $( document ).ready(function() {
         el : '#bookmark'
     });
     
+    var projectCollection = new API.view.ProjectCollectionManagementWidget({
+        onSelect: function() {
+            projectModal.close();
+        }
+    });
+
+    var projectModal = new API.view.ModalView({
+        view : projectCollection
+    });
+
+    var projectButton = new API.view.ProjectSelectorButton({
+        el : '#project'
+    });
+
+    projectButton.$el.click(function() {
+        projectModal.render();
+    });
+    
     var defaultFunction = function(analysis) {
 
             // remove any existing tables created
@@ -90,7 +108,7 @@ $( document ).ready(function() {
             body = dataviz;
         }
         editor.getSession().setValue(body);
-    }
+    };
 
     editorContents();
 
