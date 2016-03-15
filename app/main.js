@@ -39,6 +39,24 @@ $( document ).ready(function() {
         model : analysis
     });
     
+    var projectCollection = new API.view.ProjectCollectionManagementWidget({
+        onSelect: function() {
+            projectModal.close();
+        }
+    });
+
+    var projectModal = new API.view.ModalView({
+        view : projectCollection
+    });
+
+    var projectButton = new API.view.ProjectSelectorButton({
+        el : '#project'
+    });
+
+    projectButton.$el.click(function() {
+        projectModal.render();
+    });
+    
     /*
      * Start the App
      */
