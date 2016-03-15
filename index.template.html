@@ -4,40 +4,33 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bouquet Simple App</title>
-<link rel="stylesheet" type="text/css" href="app/style.css">
 <!-- bower:css -->
 <!-- endbower -->
-
+<link rel="stylesheet" type="text/css" href="app/style.css">
 <!-- bower:js -->
 <!-- endbower -->
 <script src="main.js"></script>
 </head>
 <body>
-	<div class="container" id="header">
-		<div class="row">
-			<div class="col-md-9">
+	<div class="container-fluid" id="header" style="padding: 0px;">
+		<nav class="navbar navbar-default" role="navigation" style="margin-bottom: 30px; background: #fff">
+			<div class="container-fluid">
 				<div id="status"></div>
+				<div>
+					<ul class="nav navbar-right">
+						<!-- logout -->
+						<li><div id="login">
+							<span class="sq-welcome">Welcome</span><span class="sq-login">super</span> <a href="#" class="sq-logout">logout</a>
+						</div></li>
+					</ul>
+				</div>
 			</div>
-			<div class="col-md-3">
-				<div id="login"></div>
-			</div>
-		</div>
+		</nav>
 	</div>
-	<div class="container" id="main">
+	<div class="container-fluid" id="main" style="background: #fff; padding: 20px; margin: 0 25px;">
 		<div class="row">
-			<div class="col-md-12">
-				<h2>Simple App</h2>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<div id="date"></div>
-			</div>
-			<div class="col-md-1">
-				<div id="filters"></div>
-			</div>
-			<div class="col-md-4">
-				<div id="selected"></div>
+			<div class="col-md-2">
+				<label>1. Setup your analysis</label>
 			</div>
 			<div class="col-md-2">
 				<div id="project"></div>
@@ -45,9 +38,19 @@
 			<div class="col-md-2">
 				<div id="bookmark"></div>
 			</div>
+			<div class="col-md-2">
+				<div id="date"></div>
+			</div>
+			<div class="col-md-1">
+				<div id="filters"></div>
+			</div>
+			<div class="col-md-3">
+				<div id="selected"></div>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-12">
+				<label>2. Paste your D3 script below</label>
 				<div id="editor"></div>
 			</div>
 		</div>
