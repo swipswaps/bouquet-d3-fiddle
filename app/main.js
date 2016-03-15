@@ -36,7 +36,6 @@ $( document ).ready(function() {
     });
     
     var defaultFunction = function(analysis) {
-        if (analysis.get("results")) {
 
             // remove any existing tables created
             d3.select('#data table').remove();
@@ -46,47 +45,59 @@ $( document ).ready(function() {
 
             // create table & append table headers
             container.append('table')
-                     .append('thead')
-                     .append('tr');
+                .append('thead')
+                .append('tr');
 
             // store our created table
             var table = container.select('table');
 
-                // insert table header data
-                table.select("thead tr")
-                     .selectAll("th")
-                     .data(analysis.get("results").cols)
-                     .enter()
-                     .append("th")
-                     .text(function(d) {
-                        return d.name;
-                     });
+            // insert table header data
+            table.select("thead tr")
+                .selectAll("th")
+                .data(analysis.get("results").cols)
+                .enter()
+                .append("th")
+                .text(function(d) {
+                    return d.name;
+                });
 
-                // insert table body
-                table.append('tbody');
+            // insert table body
+            table.append('tbody');
 
-                // insert table body data
-                table.select("tbody")
-                    .selectAll("tr")
-                    .data(analysis.get("results").rows)
-                    .enter()
-                    .append("tr").selectAll("td")
-                    .data(function(d) {
-                        return d.v;
-                    })
-                    .enter()
-                    .append("td")
-                    .text(function(d) {
-                        return d;
-                    });
-        }
+            // insert table body data
+            table.select("tbody")
+                .selectAll("tr")
+                .data(analysis.get("results").rows)
+                .enter()
+                .append("tr").selectAll("td")
+                .data(function(d) {
+                    return d.v;
+                })
+                .enter()
+                .append("td")
+                .text(function(d) {
+                    return d;
+                });
     };
-    
+
     var editor = ace.edit("editor");
     editor.getSession().setMode("ace/mode/javascript");
-    var entire = defaultFunction.toString();
-    var body = entire.slice(entire.indexOf("{") + 1, entire.lastIndexOf("}"));
-    editor.getSession().setValue(body);
+
+    var editorContents = function(dataviz) {
+        var entire = defaultFunction.toString();
+        var body = entire.slice(entire.indexOf("{") + 1, entire.lastIndexOf("}"));
+        if (dataviz) {
+            body = dataviz;
+        }
+        editor.getSession().setValue(body);
+    }
+
+    editorContents();
+
+    API.model.config.on("change:dataviz", function() {
+        editorContents(this.get("dataviz")[0].body);
+    });
+
     var f;
     
     $("#apply").click(function() {
@@ -94,11 +105,23 @@ $( document ).ready(function() {
         console.log(body);
         /*jslint evil: true */
         f = new Function('analysis', body);
-        analysis.on("change", f);
-        analysis.trigger("change", analysis);
+        analysis.on("change:results", f);
+        if (analysis.get("results")) {
+            analysis.trigger("change:results", analysis);
+        }
+
+        // set config
+        var dataViz = squid_api.model.config.get("dataviz");
+        var arr = [];
+        var length = 0;
+        if (dataViz) {
+            arr = dataViz;
+            length = dataViz.length;
+        }
+        arr.push({id : "squid-dataviz-" + (length + 1), body: body});
+        squid_api.model.config.set("dataviz", arr);
     });
 
-    
     
     /*
      * Start the App
