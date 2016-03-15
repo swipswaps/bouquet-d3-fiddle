@@ -34,56 +34,67 @@ $( document ).ready(function() {
     new API.view.BookmarkWidget({
         el : '#bookmark'
     });
-
-    analysis.on("change", function() {
-        if (this.get("results")) {
-            /*
-                Sample D3 Table to display the data
-             */
-
-            // remove any existing tables created
-            d3.select('#data table').remove();
-
-            // specify the rendering div
-            var container = d3.select('#data');
-
-            // create table & append table headers
-            container.append('table')
-                     .append('thead')
-                     .append('tr');
-
-            // store our created table
-            var table = container.select('table');
-
-                // insert table header data
-                table.select("thead tr")
-                     .selectAll("th")
-                     .data(this.get("results").cols)
-                     .enter()
-                     .append("th")
-                     .text(function(d) {
-                        return d.name;
-                     });
-
-                // insert table body
-                table.append('tbody');
-
-                // insert table body data
-                table.select("tbody")
-                    .selectAll("tr")
-                    .data(this.get("results").rows)
-                    .enter()
-                    .append("tr").selectAll("td")
-                    .data(function(d) {
-                        return d.v;
-                    })
-                    .enter()
-                    .append("td")
-                    .text(function(d) {
-                        return d;
-                    });
+    
+    var projectCollection = new API.view.ProjectCollectionManagementWidget({
+        onSelect: function() {
+            projectModal.close();
         }
     });
+
+    var projectModal = new API.view.ModalView({
+        view : projectCollection
+    });
+
+    var projectButton = new API.view.ProjectSelectorButton({
+        el : '#project'
+    });
+
+    projectButton.$el.click(function() {
+        projectModal.render();
+    });
+    
+
+    var editor = ace.edit("editor");
+    editor.getSession().setMode("ace/mode/javascript");
+
+    var editorContents = function(dataviz) {
+        var body = "";
+        if (dataviz) {
+            body = dataviz;
+        }
+        editor.getSession().setValue(body);
+    };
+
+    editorContents();
+
+    API.model.config.on("change:dataviz", function() {
+        editorContents(this.get("dataviz")[0].body);
+    });
+
+    var f;
+    
+    $("#apply").click(function() {
+        var body = editor.getSession().getValue();
+        console.log(body);
+        /*jslint evil: true */
+        f = new Function('analysis', body);
+        analysis.on("change:results", f);
+        if (analysis.get("results")) {
+            analysis.trigger("change:results", analysis);
+        }
+
+        // set config
+        var dataViz = squid_api.model.config.get("dataviz");
+        var arr = [];
+        var length = 0;
+        if (dataViz) {
+            arr = dataViz;
+            length = dataViz.length;
+        }
+        arr.push({id : "squid-dataviz-" + (length + 1), body: body});
+        squid_api.model.config.set("dataviz", arr);
+    });
+
     
     /*
      * Start the App
