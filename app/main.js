@@ -56,7 +56,14 @@ $( document ).ready(function() {
     new API.view.DataVizCreator({
         el : '#editor',
         bookmarks: bookmarkCollection,
-        model : analysis
+        model : analysis,
+        onEditorToggleChange: function(isHidden) {
+            if (isHidden) {
+                $(".app-config .element:not(:nth-child(2))").hide();
+            } else {
+                $(".app-config .element:not(:nth-child(2))").show();
+            }
+        }
     });
 
     var projectCollection = new API.view.ProjectCollectionManagementWidget({

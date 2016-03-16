@@ -106,7 +106,8 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [ 'jshint', 'clean', 'handlebars', 'concat',
                                     'copy', 'sass', 'wiredep', 'wiredepCopy']);
-    grunt.registerTask('dist', [ 'build', 'cacheBust' ]);
+    // bug with cache bust (indexOf error)
+    grunt.registerTask('dist', [ 'build' ]);
 
     grunt.registerTask('default', [ 'dist' ]);
 };
