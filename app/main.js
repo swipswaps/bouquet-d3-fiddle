@@ -61,9 +61,11 @@ $( document ).ready(function() {
         onEditorToggleChange: function(isHidden) {
             if (isHidden) {
                 $(".app-config .element:not(:last-child)").addClass("inactive");
+                $(".guide").css("opacity", 0);
                 //$(".app-config .element").last().addClass("pull-right");
             } else {
                 $(".app-config .element:not(:last-child)").removeClass("inactive");
+                $(".guide").css("opacity", 1);
                 //$(".app-config .element").last().removeClass("pull-right");
             }
         }

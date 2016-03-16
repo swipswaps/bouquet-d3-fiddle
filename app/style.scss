@@ -1155,6 +1155,11 @@ dt {
 }
 
 #main {
+  label {
+    &.guide {
+      color: #b35f04;
+    }
+  }
   hr {
     margin-bottom: -1px;
   }
@@ -1162,8 +1167,10 @@ dt {
     margin-top: 10px;
     .squid-api-dataviz-creator {
       .editor-container {
-        padding-right: 0px;
-        border: 1px solid #FF8802;
+        #squid-api-dataviz-creator-editor {
+          padding-right: 0px;
+          border: 1px solid #FF8802;
+        }
       }
     }
   }
