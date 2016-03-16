@@ -163,7 +163,6 @@ label {
   font-size: 12px;
   height: 27px;
   padding-top: 2px;
-  max-width: 194px;
   padding-bottom: 2px;
 }
 
@@ -328,7 +327,7 @@ h1 {
   display: inline-block;
 }
 .nav {
-  margin: 8px 10px 0px;
+  margin: 15px 10px 0px;
 }
 .navbar-right {
   float: right;
@@ -1211,7 +1210,7 @@ dt {
     min-width: 100%;
     padding: 0px;
   }
-  .editor-container {
+  .editor-container, .preview-container {
     padding-left: 0px;
     label.guide {
       padding-top: 20px;
