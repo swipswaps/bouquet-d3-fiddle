@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-    
+
     /*
      * API Setup
      */
@@ -11,7 +11,7 @@ $( document ).ready(function() {
             "bookmark" : null
         },
     });
-    
+
     /*
      * Controller part
      */
@@ -36,14 +36,29 @@ $( document ).ready(function() {
         el : '#date',
         datePickerPosition: "left"
     });
-    new API.view.BookmarkWidget({
-        el : '#bookmark'
+    var bookmarkCollection = new squid_api.view.BookmarkCollectionManagementWidget({
+        onSelect: function() {
+            bookmarkModal.close();
+        }
+    });
+
+    var bookmarkModal = new squid_api.view.ModalView({
+        view : bookmarkCollection
+    });
+
+    var bookmarkButton = new squid_api.view.BookmarkSelectorButton({
+        el : "#bookmark"
+    });
+
+    bookmarkButton.$el.click(function() {
+        bookmarkModal.render();
     });
     new API.view.DataVizCreator({
         el : '#editor',
+        bookmarks: bookmarkCollection,
         model : analysis
     });
-    
+
     var projectCollection = new API.view.ProjectCollectionManagementWidget({
         onSelect: function() {
             projectModal.close();
@@ -61,7 +76,7 @@ $( document ).ready(function() {
     projectButton.$el.click(function() {
         projectModal.render();
     });
-    
+
     /*
      * Start the App
      */
