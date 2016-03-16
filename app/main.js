@@ -60,11 +60,11 @@ $( document ).ready(function() {
         model : analysis,
         onEditorToggleChange: function(isHidden) {
             if (isHidden) {
-                $(".app-config .element:not(:last-child)").hide();
-                $(".app-config .element").last().addClass("pull-right");
+                $(".app-config .element:not(:last-child)").addClass("inactive");
+                //$(".app-config .element").last().addClass("pull-right");
             } else {
-                $(".app-config .element:not(:last-child)").show();
-                $(".app-config .element").last().removeClass("pull-right");
+                $(".app-config .element:not(:last-child)").removeClass("inactive");
+                //$(".app-config .element").last().removeClass("pull-right");
             }
         }
     });

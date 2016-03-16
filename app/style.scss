@@ -1229,6 +1229,12 @@ dt {
       padding-bottom: 10px;
       display: block;
     }
+    &.inactive {
+      border: none;
+      .item-wrapper {
+        display: none;
+      }
+    }
   }
   .squid_api_filters_categorical_button {
     min-width: 100%;
