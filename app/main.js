@@ -59,9 +59,11 @@ $( document ).ready(function() {
         model : analysis,
         onEditorToggleChange: function(isHidden) {
             if (isHidden) {
-                $(".app-config .element:not(:nth-child(2))").hide();
+                $(".app-config .element:not(:last-child)").hide();
+                $(".app-config .element").last().addClass("pull-right");
             } else {
-                $(".app-config .element:not(:nth-child(2))").show();
+                $(".app-config .element:not(:last-child)").show();
+                $(".app-config .element").last().removeClass("pull-right");
             }
         }
     });
