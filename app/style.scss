@@ -1160,9 +1160,17 @@ dt {
   }
   #editor {
     margin-top: 10px;
+    .squid-api-dataviz-creator {
+      .editor-container {
+        padding-right: 0px;
+        border: 1px solid #FF8802;
+      }
+    }
   }
   .app-config {
     padding-bottom: 0px;
+    border: 1px solid #FF8802;
+    padding: 10px;
     label {
       display: block;
     }
@@ -1180,6 +1188,8 @@ dt {
       button, .squid-api-date-selection-widget span {
         white-space: nowrap;
         vertical-align: middle;
+        text-overflow: ellipsis;
+        overflow: hidden;
         -ms-touch-action: manipulation;
         touch-action: manipulation;
         cursor: pointer;
