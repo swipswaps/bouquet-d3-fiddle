@@ -33,7 +33,8 @@ $( document ).ready(function() {
         hoverFacetDisplay : true
     });
     new API.view.DateSelectionWidget({
-        el : '#date'
+        el : '#date',
+        datePickerPosition: "left"
     });
     new API.view.BookmarkWidget({
         el : '#bookmark'
