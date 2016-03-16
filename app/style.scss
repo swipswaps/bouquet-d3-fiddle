@@ -769,6 +769,15 @@ span.customSelect.changed {
   position: relative;
 }
 
+.squid_api_filters-categorical-panel-view .apply-selection {
+  display: none;
+}
+
+.squid_api_filters-categorical-panel-view .cancel-selection {
+  float: right;
+  margin-bottom: 10px;
+}
+
 .squid_api_filters_categorical_filter_panel #search .input-group input {
   max-width: inherit;
 }

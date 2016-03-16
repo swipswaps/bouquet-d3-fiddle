@@ -28,7 +28,7 @@ $( document ).ready(function() {
         filterPanel : '#filters',
         config : filters,
         filterSelected : '#selected',
-        panelButtons : false,
+        panelButtons : true,
         displayFacetQuantity : true,
         hoverFacetDisplay : true
     });
