@@ -24,9 +24,13 @@ $( document ).ready(function() {
     new API.view.LoginView();
     new API.view.StatusView();
     new API.view.CategoricalView({
-        el : '#filters',
+        el : '#selection',
+        filterPanel : '#filters',
+        config : filters,
         filterSelected : '#selected',
-        popup : true
+        panelButtons : false,
+        displayFacetQuantity : true,
+        hoverFacetDisplay : true
     });
     new API.view.DateSelectionWidget({
         el : '#date'

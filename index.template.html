@@ -15,42 +15,61 @@
 	<div class="container-fluid" id="header" style="padding: 0px;">
 		<nav class="navbar navbar-default" role="navigation" style="margin-bottom: 30px; background: #fff">
 			<div class="container-fluid">
-				<div id="status"></div>
-				<div>
-					<ul class="nav navbar-right">
+				<div class="col-md-4">
+
+				</div>
+				<div class="col-md-4">
+					<div id="status"></div>
+				</div>
+
+				<div class="col-md-4">
+					<ul class="nav navbar-right pull-right ">
 						<!-- logout -->
 						<li><div id="login">
 							<span class="sq-welcome">Welcome</span><span class="sq-login">super</span> <a href="#" class="sq-logout">logout</a>
 						</div></li>
 					</ul>
-				</div>
 			</div>
 		</nav>
 	</div>
 	<div class="container-fluid" id="main" style="background: #fff; padding: 20px; margin: 0 25px;">
-		<div class="row">
+		<div class="row app-config">
 			<div class="col-md-2">
-				<label>1. Setup your analysis</label>
+				<label class="guide">1. Setup your analysis</label>
 			</div>
-			<div class="col-md-2">
-				<div id="project"></div>
+			<div class="col-md-2 item">
+				<div class="item-wrapper">
+					<label class="text-center">Select your project:</label>
+					<div id="project"></div>
+				</div>
 			</div>
-			<div class="col-md-2">
-				<div id="bookmark"></div>
+			<div class="col-md-2 item">
+				<div class="item-wrapper">
+					<label class="text-center">Select your analysis:</label>
+					<div id="bookmark"></div>
+				</div>
 			</div>
-			<div class="col-md-2">
-				<div id="date"></div>
+			<div class="col-md-2 item">
+				<div class="item-wrapper">
+					<label class="text-center">Select date range:</label>
+					<div id="date"></div>
+				</div>
 			</div>
-			<div class="col-md-1">
-				<div id="filters"></div>
-			</div>
-			<div class="col-md-3">
-				<div id="selected"></div>
+			<div class="col-md-2 item">
+				<div class="item-wrapper">
+					<label class="text-center">Apply Filters:</label>
+					<div id="selection"></div>
+				</div>
 			</div>
 		</div>
-		<div class="row">
+		<div class="col-md-12">
+			<hr>
+			<div id="filters"></div>
+			<div id="selected"></div>
+		</div>
+		<div class="row editor-container">
 			<div class="col-md-12">
-				<label>2. Paste your D3 script below</label>
+				<label class="guide">2. Paste your D3 script below</label>
 				<div id="editor"></div>
 			</div>
 		</div>

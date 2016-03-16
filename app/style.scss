@@ -529,9 +529,6 @@ ul.sidebar-menu li button:hover i,ul.sidebar-menu li button:focus i {
 }
 
 /* Onglet Filters */
-#filters {
-  margin: 5px 15px -5px 15px;
-}
 #filters  li{
 }
 
@@ -705,10 +702,6 @@ span.customSelect.changed {
 }
 
 #total .sq-content {
-}
-
-#date {
-  font-size: larger;
 }
 
 /* jquery UI */
@@ -1166,4 +1159,102 @@ dt {
 }
 .squidflow-flow:before {
   content: "c";
+}
+
+#main {
+  hr {
+    margin-bottom: -1px;
+  }
+  #editor {
+    margin-top: 10px;
+  }
+  .app-config {
+    padding-bottom: 0px;
+    label {
+      display: block;
+    }
+  }
+  .guide {
+    font-size: 1.2em;
+  }
+  #selection {
+    .name {
+      padding-right: 3px;
+    }
+  }
+  .item {
+    .item-wrapper {
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      width: 80%;
+      transform: translate(-50%, -50%);
+      height: 50%;
+    }
+    .squid-api-date-selection-widget {
+      text-align: center;
+      .widget {
+        white-space: nowrap;
+      }
+    }
+    border: 1px solid #eee;
+    padding: 10px;
+    margin-right: 15px;
+    height: 80px;
+    border-radius: 4px;
+    label {
+      padding-bottom: 10px;
+      display: block;
+    }
+  }
+  .squid_api_filters_categorical_button {
+    min-width: 100%;
+    padding: 0px;
+  }
+  .editor-container {
+    padding-left: 0px;
+    label.guide {
+      padding-top: 20px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  #main .item .item-wrapper {
+    width: auto;
+  }
+}
+
+/* filter panel */
+
+.filter-panel {
+  border: 1px solid #eee;
+  margin:0px;
+  margin-bottom:5px;
+  background-color:#fff;
+}
+
+.squid_api_filters_categorical_filter_panel .panel-body {
+  background-color:#fff;
+  box-shadow:none!important;
+}
+
+.squid_api_filters_categorical_filter_panel #search .input-group span.input-group-addon {
+  background: #fff;
+}
+
+.filter-panel:focus {
+  background:initial;
+  color:initial;
+}
+
+.filter-panel .panel-heading {
+  background-color:transparent;
+}
+
+.filter-panel .panel-footer {
+  background-color:transparent;
+}
+#filters .panel .panel-heading {
+  display: none;
 }
