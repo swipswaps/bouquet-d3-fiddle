@@ -60,11 +60,11 @@ $( document ).ready(function() {
         model : analysis,
         onEditorToggleChange: function(isHidden) {
             if (isHidden) {
-                $(".app-config .element:not(:last-child)").addClass("inactive");
+                $(".app-config .element").slice(0, 3).addClass("inactive");
                 $(".guide").css("opacity", 0);
                 //$(".app-config .element").last().addClass("pull-right");
             } else {
-                $(".app-config .element:not(:last-child)").removeClass("inactive");
+                $(".app-config .element").slice(0, 3).removeClass("inactive");
                 $(".guide").css("opacity", 1);
                 //$(".app-config .element").last().removeClass("pull-right");
             }
