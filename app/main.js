@@ -61,10 +61,12 @@ $( document ).ready(function() {
         onEditorToggleChange: function(isHidden) {
             if (isHidden) {
                 $(".app-config .element").slice(0, 3).addClass("inactive");
+                $(".app-config").removeClass("border-present");
                 $(".guide").css("opacity", 0);
                 //$(".app-config .element").last().addClass("pull-right");
             } else {
                 $(".app-config .element").slice(0, 3).removeClass("inactive");
+                $(".app-config").addClass("border-present");
                 $(".guide").css("opacity", 1);
                 //$(".app-config .element").last().removeClass("pull-right");
             }

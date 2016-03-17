@@ -1183,7 +1183,9 @@ dt {
     }
   }
   .app-config {
-    border: 1px solid #FF8802;
+    &.border-present {
+      border: 1px solid #FF8802;
+    }
     padding: 10px 0px;
     label {
       display: block;
