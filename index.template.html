@@ -12,71 +12,68 @@
 <script src="main.js"></script>
 </head>
 <body>
-	<div class="container-fluid" id="header" style="padding: 0px;">
-		<nav class="navbar navbar-default" role="navigation" style="margin-bottom: 30px; background: #fff">
-			<div class="container-fluid">
-				<div class="col-md-4">
-					<!-- Logo -->
-				</div>
-				<div class="col-md-4">
-					<div id="status"></div>
-				</div>
-
-				<div class="col-md-4">
-					<ul class="nav navbar-right pull-right ">
-						<!-- logout -->
-						<li><div id="login">
-							<span class="sq-welcome">Welcome</span><span class="sq-login">super</span> <a href="#" class="sq-logout">logout</a>
-						</div></li>
-					</ul>
-			</div>
-		</nav>
-	</div>
-	<div class="container-fluid" id="main" style="background: #fff; padding: 20px; margin: 0 25px;">
-		<div class="row app-config">
-			<div class="col-md-2 element">
-				<label class="guide">1. Setup your analysis</label>
-			</div>
-			<div class="col-md-offset-2">
-				<div class="col-md-3 element item">
-					<div class="item-wrapper">
-						<label class="text-center">Select your project:</label>
-						<div id="project"></div>
-					</div>
-				</div>
-				<div class="col-md-3 element item">
-					<div class="item-wrapper">
-						<label class="text-center">Select your analysis:</label>
-						<div id="bookmark"></div>
-					</div>
-				</div>
-				<div class="col-md-3 element item">
-					<div class="item-wrapper">
-						<label class="text-center">Select date range:</label>
-						<div id="date"></div>
-					</div>
-				</div>
-				<div class="col-md-2 element item">
-					<div class="item-wrapper">
-						<label class="text-center">Apply Filters:</label>
-						<div id="selection"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-12">
-			<hr>
-			<div id="filters"></div>
-			<div id="selected"></div>
-		</div>
+	<div class="container-fluid" id="main" style="background: #fff; padding: 20px;">
+        <div class="row pull-right">
+            <div id="status"></div>
+            <ul class="nav navbar-right pull-right ">
+                <!-- logout -->
+                <li><div id="login">
+                    <span class="sq-welcome">Welcome</span><span class="sq-login">super</span> <a href="#" class="sq-logout">logout</a>
+                </div></li>
+            </ul>
+        </div>
+	    <div class="row">
+            <div class="col-md-2">
+                <img src="app/logo.png" width="128" height="108" />
+            </div>
+            <div class="col-md-10 app-config">
+                <div class="col-md-2 element">
+                    <label class="guide">1. Setup your analysis</label>
+                </div>
+                <div class="col-md-2 col-md-offset-1 element item">
+                    <div class="item-wrapper">
+                        <label class="text-center">Select your project:</label>
+                        <div id="project"></div>
+                    </div>
+                </div>
+                <div class="col-md-2 element item">
+                    <div class="item-wrapper">
+                        <label class="text-center">Select your analysis:</label>
+                        <div id="bookmark"></div>
+                    </div>
+                </div>
+                <div class="col-md-2 element item">
+                    <div class="item-wrapper">
+                        <label class="text-center">Select date range:</label>
+                        <div id="date"></div>
+                    </div>
+                </div>
+                <div class="col-md-2 element item">
+                    <div class="item-wrapper">
+                        <label class="text-center">Apply Filters:</label>
+                        <div id="selection"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div id="filters"></div>
+        <div id="selected"></div>
 		<div class="row editor-container">
 			<div class="col-md-12">
-				<label class="guide">2. Visualize your data <br />
-					Edit your D3 script below
-				</label>
+				<label class="guide">2. Visualize your data. Edit your D3 JS below</label>
 				<div id="editor"></div>
 			</div>
 		</div>
 	</div>
+    <div class="panel panel-default">
+        <div class="panel-footer">
+            <div class="container">
+                <div class="col-md-5 pull-right">
+                    Powered by <a href="http://www.openbouquet.io" target="_blank">Open Bouquet</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

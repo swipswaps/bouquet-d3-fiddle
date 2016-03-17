@@ -39,7 +39,6 @@ html {
 }
 body {
   color:#767676;
-  background:#f1f2f7 !important;
   font-family: Avenir,'Open Sans',sans-serif;
   padding:0px !important;
   margin:0px !important;
@@ -1184,9 +1183,8 @@ dt {
     }
   }
   .app-config {
-    padding-bottom: 0px;
     border: 1px solid #FF8802;
-    padding: 10px;
+    padding: 10px 0px;
     label {
       display: block;
     }
@@ -1258,10 +1256,19 @@ dt {
   }
   .editor-container, .preview-container {
     padding-left: 0px;
+    .editor-toggle, .save {
+      background: #b35f04;
+      color: #fff;
+      font-size: 1.0em;
+    }
     label.guide {
       padding-top: 20px;
     }
   }
+}
+.panel-footer {
+  background: #fff;
+  border-top: 0px;
 }
 
 @media (max-width: 1024px) {
