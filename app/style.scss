@@ -1312,3 +1312,10 @@ dt {
 #filters .panel .panel-heading {
   display: none;
 }
+
+.preview-container {
+  overflow: scroll;
+  height: 650px;
+  border: 1px solid #FF8802;
+  overflow-y: scroll;
+}
