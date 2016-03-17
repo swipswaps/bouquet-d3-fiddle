@@ -48,7 +48,7 @@ $( document ).ready(function() {
 
     var bookmarkButton = new squid_api.view.BookmarkSelectorButton({
         el : "#bookmark",
-        displayPath: true
+        displayName: true
     });
 
     bookmarkButton.$el.click(function() {
