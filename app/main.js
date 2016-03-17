@@ -58,6 +58,7 @@ $( document ).ready(function() {
         el : '#editor',
         bookmarks: bookmarkCollection,
         model : analysis,
+        headerText : "2. Visualize your data. Edit your D3 JS below or select your template",
         onEditorToggleChange: function(isHidden) {
             if (isHidden) {
                 $(".app-config .element").slice(0, 3).addClass("inactive");
