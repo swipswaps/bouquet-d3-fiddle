@@ -154,12 +154,8 @@ label {
 .form-control {
   color: #666666;
   font-size: 12px;
-  height: 27px;
   padding-top: 2px;
   padding-bottom: 2px;
-}
-.viz-name {
-  height: 33px;
 }
 
 .form-group {
@@ -1229,7 +1225,7 @@ dt {
         text-decoration: underline;
       }
       .squid-api-date-selection-widget span {
-        padding-top: 4px;
+        padding-top: 8px;
         width: 100%;
       }
       position: absolute;
