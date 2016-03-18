@@ -1237,6 +1237,12 @@ dt {
     }
     .squid-api-date-selection-widget {
       text-align: center;
+      .refresh-facet {
+        width: 30px;
+        height: 30px;
+        top: -23px;
+        float: right;
+      }
       .widget {
         white-space: nowrap;
       }
