@@ -17,6 +17,10 @@ $( document ).ready(function() {
      */
     new API.controller.FiltersController();
     var analysis = (new API.controller.AnalysisController()).model;
+    
+    API.model.config.on("change", function() {
+        API.saveState();
+    });
 
     /*
      * Declare the views

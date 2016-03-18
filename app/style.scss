@@ -154,7 +154,6 @@ label {
 .form-control {
   color: #666666;
   font-size: 12px;
-  height: 27px;
   padding-top: 2px;
   padding-bottom: 2px;
 }
@@ -1182,6 +1181,7 @@ dt {
       .editor-container {
         #squid-api-dataviz-creator-editor {
           padding-right: 0px;
+          height: 650px;
           border: 1px solid #FF8802;
         }
       }
@@ -1225,7 +1225,7 @@ dt {
         text-decoration: underline;
       }
       .squid-api-date-selection-widget span {
-        padding-top: 4px;
+        padding-top: 8px;
         width: 100%;
       }
       position: absolute;
@@ -1237,6 +1237,12 @@ dt {
     }
     .squid-api-date-selection-widget {
       text-align: center;
+      .refresh-facet {
+        width: 30px;
+        height: 30px;
+        top: -23px;
+        float: right;
+      }
       .widget {
         white-space: nowrap;
       }

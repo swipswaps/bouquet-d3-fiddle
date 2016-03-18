@@ -31,7 +31,8 @@
     "ace-builds": {
       "main": [
         "src/ace.js",
-        "src/mode-javascript.js"
+        "src/mode-javascript.js",
+        "src/worker-javascript.js"
       ]
     }
   }
