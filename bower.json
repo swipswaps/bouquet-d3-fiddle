@@ -21,7 +21,8 @@
     "squid_api_core_widgets": "https://github.com/openbouquet/bouquet-javascript-sdk-core-widgets.git#develop",
     "squid_api_data_widgets": "https://github.com/openbouquet/bouquet-javascript-sdk-data-widgets.git#develop",
     "squid_api_filters_widget": "https://github.com/openbouquet/bouquet-javascript-sdk-filtering-widgets.git#develop",
-    "squid_api_admin_widgets": "https://github.com/openbouquet/bouquet-javascript-sdk-admin-widgets.git#develop"
+    "squid_api_admin_widgets": "https://github.com/openbouquet/bouquet-javascript-sdk-admin-widgets.git#develop",
+    "squid_api_fiddle_dataviz": "https://github.com/openbouquet/bouquet-javascript-sdk-fiddle-dataviz.git#develop"
   },
   "resolutions": {
     "squid_api": "develop",
