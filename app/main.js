@@ -95,6 +95,10 @@ $( document ).ready(function() {
     projectButton.$el.click(function() {
         projectModal.render();
     });
+    
+    squid_api.utils.checkAPIVersion("*").done(function(v){
+        $(".api-version").html(v);
+    });
 
     /*
      * Start the App
