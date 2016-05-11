@@ -16,8 +16,13 @@ $( document ).ready(function() {
      * Controller part
      */
     new API.controller.FiltersController();
-    var analysis = (new API.controller.AnalysisController()).model;
-    
+    var analysis = (new API.controller.AnalysisController({
+        onChangeHandler : function(analysis) {
+            analysis.removeParameter("maxResults");
+            squid_api.compute(analysis);
+        }
+    })).model;
+
     API.model.config.on("change", function() {
         API.saveState();
     });
@@ -95,7 +100,7 @@ $( document ).ready(function() {
     projectButton.$el.click(function() {
         projectModal.render();
     });
-    
+
     squid_api.utils.checkAPIVersion("*").done(function(v){
         $(".api-version").html(v);
     });
