@@ -1,5 +1,5 @@
 {
-  "name": "bouquet-app-simple",
+  "name": "bouquet-d3-fiddle",
   "version": "1.0.0",
   "authors": [
     "obalbous <oba@squid>"
@@ -15,13 +15,14 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "3.3.4",
-    "font-awesome": "https://github.com/components/font-awesome.git",
-    "squid_api": "https://github.com/openbouquet/bouquet-javascript-sdk.git#3.4.5",
-    "squid_api_core_widgets": "https://github.com/openbouquet/bouquet-javascript-sdk-core-widgets.git#2.9.7",
-    "squid_api_data_widgets": "https://github.com/openbouquet/bouquet-javascript-sdk-data-widgets.git#4.2.0",
-    "squid_api_filters_widget": "https://github.com/openbouquet/bouquet-javascript-sdk-filtering-widgets.git#3.4.6",
-    "squid_api_admin_widgets": "https://github.com/openbouquet/bouquet-javascript-sdk-admin-widgets.git#3.2.2"
+      "bootstrap": "3.3.4",
+      "font-awesome": "https://github.com/components/font-awesome.git",
+      "squid_api": "https://github.com/openbouquet/bouquet-javascript-sdk.git#3.5.5",
+      "squid_api_core_widgets": "https://github.com/openbouquet/bouquet-javascript-sdk-core-widgets.git#3.0.0",
+      "squid_api_data_widgets": "https://github.com/openbouquet/bouquet-javascript-sdk-data-widgets.git#4.9.8",
+      "squid_api_filters_widget": "https://github.com/openbouquet/bouquet-javascript-sdk-filtering-widgets.git#3.5.8",
+      "squid_api_admin_widgets": "https://github.com/openbouquet/bouquet-javascript-sdk-admin-widgets.git#3.4.5",
+      "squid_api_fiddle_dataviz": "https://github.com/openbouquet/bouquet-javascript-sdk-fiddle-dataviz.git#1.0.0"
   },
   "resolutions": {
     "squid_api": "develop",
