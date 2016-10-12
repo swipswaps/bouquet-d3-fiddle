@@ -8,7 +8,7 @@ $( document ).ready(function() {
         "clientId" : "simple-app",
         "config" : {
             "project" : "dvdrental",
-            "bookmark" : "56b49d9615abcc2b04c5d044"
+            "bookmark" : "57c597e0733bd67e3ddbe771"
         },
     });
 
