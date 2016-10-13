@@ -25,7 +25,7 @@
     "squid_api_fiddle_dataviz": "https://github.com/openbouquet/bouquet-javascript-sdk-fiddle-dataviz.git#1.0.0"
   },
   "resolutions": {
-    "squid_api": "3.5.5",
+    "squid_api": "3.6.1",
     "jquery": "~2.0.3",
     "ace-builds": "v1.2.3.3"
   },
